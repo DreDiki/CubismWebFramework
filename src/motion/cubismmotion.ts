@@ -416,8 +416,8 @@ export namespace Live2DCubismFramework {
           CubismMotionCurveTarget.CubismMotionCurveTarget_PartOpacity;
         ++c
       ) {
-        // Find parameter index.
-        parameterIndex = model.getParameterIndex(curves.at(c).id);
+        // Find part index.
+        parameterIndex = model.getPartIndex(curves.at(c).id);;
 
         // Skip curve evaluation if no value in sink.
         if (parameterIndex == -1) {
@@ -427,7 +427,7 @@ export namespace Live2DCubismFramework {
         // Evaluate curve and apply value.
         value = evaluateCurve(this._motionData, c, time);
 
-        model.setParameterValueByIndex(parameterIndex, value);
+        model.setPartOpacityByIndex(parameterIndex, value);
       }
 
       if (timeOffsetSeconds >= this._motionData.duration) {
